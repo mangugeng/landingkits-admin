@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ['@firebase/storage', 'firebase'],
+    transpilePackages: ['@firebase/storage', 'firebase', 'undici'],
     webpack: (config, { isServer }) => {
         if (!isServer) {
             config.resolve.fallback = {
@@ -22,11 +22,19 @@ const nextConfig = {
                 process: false,
             };
         }
+
+        // Add rule for handling private class fields in undici
+        config.module.rules.push({
+            test: /[\\/]node_modules[\\/]undici[\\/].*\.js$/,
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-proposal-private-methods', '@babel/plugin-proposal-class-properties']
+            }
+        });
+
         return config;
-    },
-    experimental: {
-        serverActions: true,
-    },
+    }
 }
 
 module.exports = nextConfig 
