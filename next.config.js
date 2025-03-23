@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ['@firebase/storage', 'firebase'],
     webpack: (config, { isServer }) => {
         if (!isServer) {
             config.resolve.fallback = {
