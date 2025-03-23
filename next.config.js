@@ -8,6 +8,17 @@ const nextConfig = {
                 net: false,
                 tls: false,
                 crypto: false,
+                stream: false,
+                path: false,
+                zlib: false,
+                http: false,
+                https: false,
+                buffer: false,
+                util: false,
+                url: false,
+                assert: false,
+                os: false,
+                process: false,
             };
         }
         return config;
