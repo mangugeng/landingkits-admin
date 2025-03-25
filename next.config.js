@@ -34,6 +34,32 @@ const nextConfig = {
         });
 
         return config;
+    },
+    images: {
+        domains: ['firebasestorage.googleapis.com'],
+    },
+    async headers() {
+        return [
+            {
+                source: '/api/:path*',
+                headers: [
+                    { key: 'Access-Control-Allow-Credentials', value: 'true' },
+                    { key: 'Access-Control-Allow-Origin', value: '*' },
+                    { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
+                    { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization' },
+                ]
+            },
+            {
+                source: '/:path*',
+                headers: [
+                    { key: 'Access-Control-Allow-Origin', value: '*' },
+                    { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
+                    { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization' },
+                    { key: 'Access-Control-Expose-Headers', value: 'Content-Length, X-Content-Range' },
+                    { key: 'Access-Control-Max-Age', value: '86400' }
+                ]
+            }
+        ]
     }
 }
 

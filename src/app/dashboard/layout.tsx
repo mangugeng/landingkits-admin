@@ -20,7 +20,8 @@ import {
   FiTruck,
   FiDollarSign,
   FiMessageSquare,
-  FiHelpCircle
+  FiHelpCircle,
+  FiImage
 } from 'react-icons/fi';
 import Navbar from '@/components/dashboard/Navbar';
 
@@ -118,6 +119,17 @@ export default function DashboardLayout({
                 >
                   <FiFileText className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Blog
+                </Link>
+                <Link
+                  href="/dashboard/gallery"
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
+                    pathname.startsWith('/dashboard/gallery')
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  }`}
+                >
+                  <FiImage className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
+                  Galeri
                 </Link>
                 <Link
                   href="/dashboard/payments"
