@@ -186,7 +186,7 @@ export default function ComponentListPage() {
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500">Tipe: {component.type}</span>
+                  <span className="text-sm text-gray-500">Komponen: {component.components?.length || 0}</span>
                 </div>
                 <div className="flex gap-2 justify-end">
                   <Dialog>

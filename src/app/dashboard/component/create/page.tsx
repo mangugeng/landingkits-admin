@@ -32,6 +32,7 @@ export default function CreateComponentPage() {
     description: '',
     slug: '',
     components: [],
+    props: {},
     createdAt: new Date(),
     updatedAt: new Date()
   };
