@@ -65,7 +65,6 @@ export default function ComponentListPage() {
         name: newComponent.name,
         slug: slug,
         description: newComponent.description,
-        type: 'section',
         props: {},
         components: [],
         createdAt: new Date(),

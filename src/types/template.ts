@@ -237,6 +237,7 @@ export interface ComponentEditor {
   description: string;
   components: TemplateComponent[];
   slug: string;
+  props: Record<string, any>;
   createdAt: Date;
   updatedAt: Date;
 } 
