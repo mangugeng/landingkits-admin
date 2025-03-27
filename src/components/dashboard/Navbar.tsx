@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FiMenu, FiX, FiLogOut, FiHome, FiUsers, FiUserPlus, FiFileText, FiShoppingBag, FiPackage, FiTruck, FiDollarSign, FiMessageSquare, FiHelpCircle, FiBarChart2, FiSettings, FiImage } from 'react-icons/fi';
+import { FiMenu, FiX, FiLogOut, FiHome, FiUsers, FiUserPlus, FiFileText, FiShoppingBag, FiPackage, FiTruck, FiDollarSign, FiMessageSquare, FiHelpCircle, FiBarChart2, FiSettings, FiImage, FiLayout } from 'react-icons/fi';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,6 +110,18 @@ export default function Navbar() {
               >
                 <FiHome className="mr-3 h-5 w-5" />
                 Dashboard
+              </Link>
+              <Link
+                href="/dashboard/templates"
+                className={`group flex items-center px-3 py-2 text-base font-medium rounded-md ${
+                  pathname.startsWith('/dashboard/templates')
+                    ? 'bg-indigo-50 text-indigo-600'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <FiLayout className="mr-3 h-5 w-5" />
+                Template
               </Link>
               <Link
                 href="/dashboard/staff"

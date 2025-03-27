@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { 
-  FiHome, 
-  FiUsers, 
-  FiSettings, 
+import {
+  FiHome,
+  FiUsers,
+  FiSettings,
   FiLogOut,
   FiMenu,
   FiX,
@@ -21,7 +21,9 @@ import {
   FiDollarSign,
   FiMessageSquare,
   FiHelpCircle,
-  FiImage
+  FiImage,
+  FiLayout,
+  FiEdit
 } from 'react-icons/fi';
 import Navbar from '@/components/dashboard/Navbar';
 
@@ -67,121 +69,140 @@ export default function DashboardLayout({
               <nav className="flex-1 px-2 pb-4 space-y-1">
                 <Link
                   href="/dashboard"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname === '/dashboard'
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname === '/dashboard'
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiHome className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Dashboard
                 </Link>
                 <Link
-                  href="/dashboard/staff"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/staff')
+                  href="/dashboard/landing-pages"
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname === '/dashboard/landing-pages'
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
+                >
+                  <FiLayout className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
+                  Landing Pages
+                </Link>
+                <Link
+                  href="/dashboard/component"
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/component')
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
+                >
+                  <FiLayout className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
+                  Komponen
+                </Link>
+                <Link
+                  href="/dashboard/templates"
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/templates')
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
+                >
+                  <FiLayout className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
+                  Template
+                </Link>
+                <Link
+                  href="/dashboard/staff"
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/staff')
+                      ? 'bg-indigo-50 text-indigo-600'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
                 >
                   <FiUsers className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Staf
                 </Link>
                 <Link
                   href="/dashboard/users"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/users')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/users')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiUserPlus className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Pengguna
                 </Link>
                 <Link
                   href="/dashboard/landing"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/landing')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/landing')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiHome className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Landing Page
                 </Link>
                 <Link
                   href="/dashboard/blog"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/blog')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/blog')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiFileText className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Blog
                 </Link>
                 <Link
                   href="/dashboard/gallery"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/gallery')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/gallery')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiImage className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Galeri
                 </Link>
                 <Link
                   href="/dashboard/payments"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/payments')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/payments')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiDollarSign className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Pembayaran
                 </Link>
                 <Link
                   href="/dashboard/messages"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/messages')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/messages')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiMessageSquare className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Pesan
                 </Link>
                 <Link
                   href="/dashboard/faq"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/faq')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/faq')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiHelpCircle className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   FAQ
                 </Link>
                 <Link
                   href="/dashboard/analytics"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/analytics')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/analytics')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiBarChart2 className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Analitik
                 </Link>
                 <Link
                   href="/dashboard/settings"
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
-                    pathname.startsWith('/dashboard/settings')
+                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${pathname.startsWith('/dashboard/settings')
                       ? 'bg-indigo-50 text-indigo-600'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   <FiSettings className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
                   Pengaturan
