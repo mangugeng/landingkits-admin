@@ -725,8 +725,9 @@ export default function ComponentEditor({ component, onSave, onCancel }: Compone
         id: component.id || crypto.randomUUID(),
         name: component.name || 'New Component',
         description: component.description || '',
-        slug: component.slug || 'new-component',
-        components: components,
+        slug: component.slug || '',
+        components: component.components || [],
+        props: component.props || {},
         createdAt: component.createdAt || new Date(),
         updatedAt: new Date()
       };
